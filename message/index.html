@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fafaf8">
+<meta name="color-scheme" content="light dark">
+<title>私密留言 · Shiori</title>
+<meta name="description" content="给 Shiori 留下一封不公开展示的私密留言。">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="canonical" href="http://localhost:4000/message/">
+<link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/style.css">
+<script>
+  (() => {
+    const saved = localStorage.getItem('shiori-theme');
+    const dark = saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  })();
+</script>
+
+  <meta name="generator" content="Hexo 8.1.2"></head>
+  <body class="page-message">
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    
+
+    <div class="site-shell">
+      <aside class="sidebar" data-sidebar aria-label="站点侧栏">
+  <div class="sidebar-head">
+    <a class="brand-mark" href="/" aria-label="Shiori 首页">S/</a>
+    <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="切换深浅色模式">
+      <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg>
+    </button>
+  </div>
+
+  <div class="site-identity">
+    <a class="site-title" href="/">Shiori</a>
+    <p>记录代码、设计与日常思考</p>
+  </div>
+
+  <nav class="primary-nav" aria-label="主要导航">
+    <a class="nav-item" href="/">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg><span>首页</span>
+    </a>
+    <a class="nav-item" href="/archives/">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg><span>归档</span>
+    </a>
+    <a class="nav-item" href="/notes/">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m4 20 4.5-1 10-10a2.12 2.12 0 0 0-3-3l-10 10Z"/><path d="m14 7 3 3"/></svg><span>随笔</span>
+    </a>
+    <a class="nav-item" href="/about/">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg><span>关于</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-foot">
+    <a class="search-link" href="/search/">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>搜索文章</span><kbd>/</kbd>
+    </a>
+    <div class="footer-copy">
+      <p>© 2026 Shiori</p>
+      <p>以文字保存思考。</p>
+    </div>
+  </div>
+</aside>
+
+      <header class="mobile-header">
+  <a class="mobile-brand" href="/"><span>S/</span>Shiori</a>
+  <div class="mobile-actions">
+    <a class="icon-button" href="/search/" aria-label="搜索文章">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+    </a>
+    <button class="icon-button menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="打开导航菜单">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+      <main class="site-main" id="main-content" tabindex="-1">
+        <section class="page-heading message-heading">
+  <p class="eyebrow">PRIVATE MESSAGE</p>
+  <h1>留下一封只属于我们的信。</h1>
+  <p>留言不会公开展示。提交后请保存私密查看链接，它是你再次查看这条留言的唯一凭证。</p>
+</section>
+
+<section class="message-panel" data-message-page>
+  <form class="message-form" data-message-form novalidate>
+    <div class="message-form-grid">
+      <label class="form-field">
+        <span>怎么称呼你 <small>选填</small></span>
+        <input name="name" type="text" maxlength="80" autocomplete="name" placeholder="名字或昵称">
+      </label>
+      <label class="form-field">
+        <span>联系方式 <small>选填，仅站主可见</small></span>
+        <input name="contact" type="text" maxlength="160" autocomplete="email" placeholder="邮箱或其他联系方式">
+      </label>
+    </div>
+    <label class="form-field">
+      <span>留言内容</span>
+      <textarea name="message" rows="9" maxlength="4000" required placeholder="写下你想说的话…"></textarea>
+      <span class="field-meta"><span>最多 4000 字</span><span data-message-count>0 / 4000</span></span>
+    </label>
+    <label class="message-trap" aria-hidden="true">
+      <span>请勿填写</span>
+      <input name="website" type="text" tabindex="-1" autocomplete="off">
+    </label>
+    <div class="message-actions">
+      <button class="primary-button" type="submit" data-message-submit>私密提交</button>
+      <p class="privacy-note">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        内容只通过加密连接传输，不会出现在博客页面或搜索结果中。
+      </p>
+    </div>
+    <p class="form-status" data-message-status aria-live="polite"></p>
+  </form>
+
+  <article class="message-receipt" data-message-receipt hidden>
+    <p class="eyebrow">SAVED</p>
+    <h2>留言已妥善收下。</h2>
+    <p>请保存下面的私密链接。任何拿到链接的人都能查看这条留言，请不要公开分享。</p>
+    <div class="private-link-row">
+      <input type="text" readonly data-private-link aria-label="私密查看链接">
+      <button class="secondary-button" type="button" data-copy-link>复制链接</button>
+    </div>
+    <a class="text-link" href="/message/">再写一条</a>
+  </article>
+
+  <article class="private-message-view" data-private-message hidden>
+    <div class="private-message-head">
+      <div>
+        <p class="eyebrow">YOUR MESSAGE</p>
+        <h2>你的私密留言</h2>
+      </div>
+      <span class="message-status-pill" data-private-status></span>
+    </div>
+    <dl class="message-details">
+      <div><dt>称呼</dt><dd data-private-name></dd></div>
+      <div><dt>提交时间</dt><dd data-private-time></dd></div>
+    </dl>
+    <p class="private-message-body" data-private-body></p>
+  </article>
+</section>
+
+      </main>
+    </div>
+
+    <div class="nav-scrim" data-nav-scrim hidden></div>
+    
+      <button class="back-to-top" type="button" data-back-to-top aria-label="返回页面顶部">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg>
+      </button>
+    
+    <script src="/js/main.js"></script>
+    
+    <script src="/js/message.js"></script>
+    
+  </body>
+</html>
