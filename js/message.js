@@ -33,13 +33,13 @@
 
   const showPrivateMessage = async (id, token) => {
     form.hidden = true;
-    setStatus('正在读取留言…');
+    setStatus('正在读取工单…');
     try {
       const response = await fetch(`/api/messages/${encodeURIComponent(id)}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
-      if (!response.ok) throw new Error(data.error || '无法读取这条留言');
+      if (!response.ok) throw new Error(data.error || '无法读取这条工单');
 
       privateView.querySelector('[data-private-name]').textContent = data.message.name || '未署名';
       privateView.querySelector('[data-private-time]').textContent = formatTime(data.message.createdAt);
@@ -60,10 +60,11 @@
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const values = new FormData(form);
-    const body = String(values.get('message') || '').trim();
+    const body = String(values.get('contact') || '').trim();
     if (!body) {
-      setStatus('请先写下留言内容。', 'error');
-      textarea.focus();
+      setStatus('您必须填写联系方式。', 'error');
+      // textarea.focus();
+      input.focus();
       return;
     }
 
@@ -97,7 +98,7 @@
       setStatus(error.message, 'error');
     } finally {
       submit.disabled = false;
-      submit.textContent = '私密提交';
+      submit.textContent = '提交';
     }
   });
 

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#fafaf8">
 <meta name="color-scheme" content="light dark">
-<title>私密留言 · Shiori</title>
-<meta name="description" content="给 Shiori 留下一封不公开展示的私密留言。">
+<title>提交工单 · Shiori</title>
+<meta name="description" content="此工单将会提交给管理员">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <link rel="canonical" href="http://localhost:4000/message/">
 <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
@@ -80,25 +80,23 @@
       <main class="site-main" id="main-content" tabindex="-1">
         <section class="page-heading message-heading">
   <p class="eyebrow">PRIVATE MESSAGE</p>
-  <h1>留下一封只属于我们的信。</h1>
-  <p>留言不会公开展示。提交后请保存私密查看链接，它是你再次查看这条留言的唯一凭证。</p>
+  <h1>提交工单</h1>
+  <p>此工单将提交给管理员而绝对不会公开展示。提交后请保存查看链接，您必须通过此链接方能再次查看工单详情。</p>
 </section>
 
 <section class="message-panel" data-message-page>
   <form class="message-form" data-message-form novalidate>
-    <div class="message-form-grid">
-      <label class="form-field">
-        <span>怎么称呼你 <small>选填</small></span>
-        <input name="name" type="text" maxlength="80" autocomplete="name" placeholder="名字或昵称">
-      </label>
-      <label class="form-field">
-        <span>联系方式 <small>选填，仅站主可见</small></span>
-        <input name="contact" type="text" maxlength="160" autocomplete="email" placeholder="邮箱或其他联系方式">
-      </label>
-    </div>
     <label class="form-field">
-      <span>留言内容</span>
-      <textarea name="message" rows="9" maxlength="4000" required placeholder="写下你想说的话…"></textarea>
+      <span>您希望建立的邮箱名称 <small>选填。</small></span>
+      <input name="name" type="text" maxlength="80" autocomplete="name" placeholder="若留空，我们将为您生成随机的邮箱名称">
+    </label>
+    <label class="form-field">
+      <span>联系方式 <small>必填。</small></span>
+      <input name="contact" type="text" maxlength="160" required placeholder="邮箱或其他联系方式">
+    </label>
+    <label class="form-field">
+      <span>附加留言 <small>选填。</small></span>
+      <textarea name="message" rows="3" maxlength="4000" placeholder="其他描述…"></textarea>
       <span class="field-meta"><span>最多 4000 字</span><span data-message-count>0 / 4000</span></span>
     </label>
     <label class="message-trap" aria-hidden="true">
@@ -106,10 +104,10 @@
       <input name="website" type="text" tabindex="-1" autocomplete="off">
     </label>
     <div class="message-actions">
-      <button class="primary-button" type="submit" data-message-submit>私密提交</button>
+      <button class="primary-button" type="submit" data-message-submit>提交</button>
       <p class="privacy-note">
         <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-        内容只通过加密连接传输，不会出现在博客页面或搜索结果中。
+        此工单内容将通过加密连接传输，不会出现在公开页面或搜索结果中。
       </p>
     </div>
     <p class="form-status" data-message-status aria-live="polite"></p>
@@ -117,20 +115,19 @@
 
   <article class="message-receipt" data-message-receipt hidden>
     <p class="eyebrow">SAVED</p>
-    <h2>留言已妥善收下。</h2>
-    <p>请保存下面的私密链接。任何拿到链接的人都能查看这条留言，请不要公开分享。</p>
+    <h2>工单已提交。</h2>
+    <p>请保存下面的链接。任何拿到链接的人都能查看这条工单，请不要分享给他人。</p>
     <div class="private-link-row">
-      <input type="text" readonly data-private-link aria-label="私密查看链接">
+      <input type="text" readonly data-private-link aria-label="查看链接">
       <button class="secondary-button" type="button" data-copy-link>复制链接</button>
     </div>
-    <a class="text-link" href="/message/">再写一条</a>
   </article>
 
   <article class="private-message-view" data-private-message hidden>
     <div class="private-message-head">
       <div>
         <p class="eyebrow">YOUR MESSAGE</p>
-        <h2>你的私密留言</h2>
+        <h2>你的工单</h2>
       </div>
       <span class="message-status-pill" data-private-status></span>
     </div>
